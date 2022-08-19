@@ -1,0 +1,23 @@
+@font-face {
+  font-family: Shabnam-Font;
+  src: url(./css/font/6-Shabnam/Shabnam-Bold.ttf);
+}
+
+HTML {
+  overflow-x: hidden;
+}
+
+html,
+div {
+  font-family: Shabnam-Font;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.main {
+  margin: 0px !important;
+  padding: 0px !important;
+  background-color: rgb(255, 255, 255);
+  min-height: 85.7vh;
+}
+

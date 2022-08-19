@@ -1,0 +1,7 @@
+:root {
+    --main-color : #9515e6;
+    --main-hover-color : #720bb3;
+    --footer-bg-color : #5e0694;
+    --gradient-color : linear-gradient(300deg, rgb(174, 0, 255), rgb(210, 177, 248));
+    ;
+}

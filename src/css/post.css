@@ -1,0 +1,88 @@
+.post-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    margin-bottom: 5vh !important;
+}
+
+.post-bg {
+    background-image: linear-gradient(250deg, rgb(125, 9, 192), rgb(178, 97, 224));
+    width: 90vw !important;
+    border-radius: 10px;
+}
+
+.post-bg img {
+    border-radius: 10px 10px 0 0;
+    width: 90vw;
+}
+
+.post-title {
+    color: white;
+    margin-top: 2vh !important;
+}
+
+.post-desc {
+    color: white;
+    text-align: right;
+    margin: 0 3vw 3vh 3vw;
+    height: auto;
+}
+p.post-desc #text {
+    color: rgb(255, 0, 0);
+}
+.to-back {
+transition: 1.5s;
+}
+.p-to-back{
+background-color: rgb(233, 233, 233);
+width: 60px;
+margin-left: 0 !important;
+border-radius: 0 10px 10px 0;
+padding: 5px 10px 3px 0px !important;
+border : 1px solid rgba(153, 153, 153, 0.26)
+}
+.p-to-back:hover {
+    cursor: pointer;
+}
+.p-to-back:hover .to-back {
+    transform: translateX(-15px);
+}
+@media only screen and (min-width : 660px) {
+    .post-bg img {
+        width: 50vw;
+        border-radius: 10px;
+        margin-top: 3vh;
+    }
+
+    .post-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100vw;
+        margin-bottom: 10vh !important;
+    }
+
+    .post-bg {
+        background-image: linear-gradient(90deg, rgb(125, 9, 192), rgb(178, 97, 224));
+        width: 70vw !important;
+        border-radius: 10px;
+    }
+
+    .post-title {
+        color: white;
+        margin-top: 5vh !important;
+    }
+
+    .post-desc {
+        color: rgb(0, 0, 0);
+        text-align: right;
+        margin: 4vh 3vw 3vh 3vw;
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+        min-height: 6vh;
+    }
+}

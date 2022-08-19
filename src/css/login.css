@@ -1,0 +1,132 @@
+:root {
+    --toastify-icon-color-success: rgb(10, 230, 58);
+    --toastify-icon-color-error: rgb(224, 14, 14);
+}
+
+.Toastify__toast-container--top-center {
+    margin-top: 2vh !important;
+    width: 80vw;
+    margin-right: 10vw !important;
+    border-radius: 20px;
+}
+
+.Toastify__toast {
+    border-radius: 10px;
+}
+
+.Toastify__toast-body {
+    margin-right: 3vw !important;
+    font-size: 13px;
+}
+
+.Toastify__toast-icon {
+    margin-left: 2.5vw !important;
+}
+
+.Toastify__close-button {
+    margin-left: 2vw !important;
+    margin-top: 0.2vh !important;
+}
+
+
+
+.login-form {
+    text-align: center;
+    padding: 20px !important;
+}
+
+.login-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-div {
+    background-image: var(--gradient-color);
+    border-radius: 15px;
+    width: 90vw;
+    margin-right: 5vw !important;
+    margin-top: 2vh !important;
+
+}
+
+input::placeholder {
+    font-size: 12px !important;
+    color: rgba(138, 138, 138, 0.623) !important;
+}
+
+input:focus {
+    box-shadow: 0px 0px 2px 3px rgba(132, 0, 255, 0.432) !important;
+    border: 1px solid rgb(134, 17, 243) !important;
+}
+
+#login-button {
+    background-image: linear-gradient(30deg, rgb(125, 9, 192), rgb(178, 97, 224));
+    border: none;
+    box-shadow: 0px 0px 3px 1px rgba(82, 82, 82, 0.425);
+}
+
+.login-buttons {
+    margin-bottom: 2vh !important;
+    text-align: center;
+}
+
+#signin-button {
+    background-image: linear-gradient(30deg, rgb(125, 9, 192), rgb(178, 97, 224));
+    border: none;
+    box-shadow: 0px 0px 3px 1px rgba(82, 82, 82, 0.425);
+    margin-left: 1vw !important;
+}
+
+#forget-password {
+    background-image: linear-gradient(30deg, rgb(125, 9, 192), rgb(178, 97, 224));
+    border: none;
+    box-shadow: 0px 0px 3px 1px rgba(82, 82, 82, 0.425);
+    margin-right: 1vw !important;
+}
+
+.login-title {
+    margin-top: 3vh !important;
+    font-size: 1.25rem;
+    margin-right: 5vw !important;
+    color: var(--main-color);
+}
+
+@media only screen and (min-width:660px) {
+    .login-form {
+        margin-right: 7vw !important;
+    }
+
+
+
+
+
+    .Toastify__toast-container--top-center {
+        margin-top: 2vh !important;
+        width: 30vw;
+        margin-right: 35vw !important;
+    }
+
+    .Toastify__toast {
+        border-radius: 10px;
+    }
+
+    .Toastify__toast-body {
+        margin-right: 1vw !important;
+        font-size: 14px;
+    }
+
+    .Toastify__toast-icon {
+        margin-left: 1vw !important;
+    }
+
+    .Toastify__close-button {
+        margin-left: 0.7vw !important;
+        margin-top: 0.5vh !important;
+    }
+
+
+
+
+
+}

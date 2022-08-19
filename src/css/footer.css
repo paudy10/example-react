@@ -1,0 +1,14 @@
+.footer {
+    height: 40px;
+    background-color: var(--footer-bg-color);
+    margin: 0 !important;
+    width: 100vw;
+}
+
+.footer-text{
+    margin: 0 !important;
+    color: white;
+    font-size: 13px;
+    text-align: center;
+    padding: 1.5vh;
+}

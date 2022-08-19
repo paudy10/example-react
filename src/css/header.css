@@ -1,0 +1,148 @@
+.login-icon {
+    color: var(--main-color) !important;
+    font-size: 25px;
+    transition: 0.6s;
+}
+
+.header {
+    height: 54px;
+    direction: rtl;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.473);
+    box-shadow: 0px 0.5px 3px 1px #ccc;
+}
+
+.login {
+    float: left;
+    margin-top: 8px;
+    margin-left: 20px;
+    padding: 5px 20px;
+    color: var(--main-color);
+    text-decoration: none;
+    transition: 1s;
+}
+
+.login:hover {
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--main-hover-color);
+}
+
+.login:hover .login-icon {
+    color: var(--main-hover-color) !important;
+    transform: translateX(5px);
+}
+
+.title {
+    float: right;
+    padding-top: 13px;
+    padding-right: 20px;
+    color: rgb(39, 39, 39);
+}
+
+.gray-screen {
+    top: 0;
+    right: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.178);
+}
+
+.menu {
+    z-index: 3;
+    position: absolute;
+    height: 100vh;
+    width: 60vw;
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgba(95, 95, 95, 0.733);
+    box-shadow: -2px 0px 4px 1px rgba(163, 163, 163, 0.623);
+    top: 0;
+    right: -60vw;
+    display: none;
+    transition: 2s;
+}
+
+.app-title {
+    margin: 4vw;
+}
+
+.menu-icon {
+    margin-left: 10px;
+    font-size: 25px;
+    transition: 1s;
+}
+
+.menu-icon:hover {
+    transform: translateX(-5px);
+    cursor: pointer;
+}
+
+.close-menu {
+    position: relative;
+    left: 4vw;
+    float: left;
+    color: rgb(31, 31, 31);
+    top: 2.5vh;
+}
+
+.close-menu:hover {
+    cursor: pointer;
+}
+
+.mynav {
+    padding-right: 1vw;
+    padding-top: 3vh;
+}
+
+.nav-link-text {
+    color: var(--main-color);
+    font-size: 14px;
+}
+
+.nav-link-text:hover {
+    color: var(--main-hover-color);
+}
+
+.nav-link-icon {
+    color: var(--main-color);
+    font-size: 20px;
+    margin-left: 3vw;
+}
+
+.nav-link-icon:hover {
+    color: var(--main-hover-color);
+}
+
+.d-inline {
+    display: inline-flex !important;
+}
+
+.nav-link-items {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.inline-menu,
+.nav-link-items,
+.desklinks {
+    display: none !important;
+}
+.nolinkdecoration:link {
+    text-decoration: none;
+    color: black !important;
+}
+@media only screen and (min-width: 660px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .inline-menu,
+    .nav-link-items,
+    .desklinks {
+        display: inline-flex !important;
+    }
+}
