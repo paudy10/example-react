@@ -1,5 +1,5 @@
 {
-    "baseUrl": "http://192.168.1.33:3001",
+    "baseUrl": "https://api4appsaz.herokuapp.com",
     "api_blog": "/api/v1/getblog",
     "api_price": "/api/v1/getprice",
     "api_post": "/api/v1/getpost/",
