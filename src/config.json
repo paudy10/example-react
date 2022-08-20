@@ -5,5 +5,7 @@
     "api_post": "/api/v1/getpost/",
     "api_signup": "/api/v1/signup",
     "api_signin": "/api/v1/signin",
-    "api_admin_signin": "/api/v1/admin/signin"
+    "api_admin_signin": "/api/v1/admin/signin",
+    "api_post_contact": "/api/v1/sendContactForm",
+    "api_get_contact": "/api/v1/getcontact"
 }
