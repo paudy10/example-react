@@ -13,7 +13,7 @@ import { updateUserDetailsAction } from '../../userDetailSlice';
 
 
 
-const AdminLogin = ({ onLogin }) => {
+const AdminLogin = () => {
 
 
     const dispatch = useDispatch();
