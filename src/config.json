@@ -1,5 +1,5 @@
 {
-    "baseUrl": "https://example-api.jvdpd1021.repl.co",
+    "baseUrl": "https://example-api-1.jvdpd1021.repl.co",
     "api_blog": "/api/v1/getblog",
     "api_price": "/api/v1/getprice",
     "api_post": "/api/v1/getpost/",
