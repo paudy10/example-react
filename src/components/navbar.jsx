@@ -9,10 +9,10 @@ import { useSelector } from 'react-redux';
 
 const Navbar = () => {
 
-    const Links = getNavLinks()
+    
     const role = useSelector(state => state.userDetail.role)
 
-
+    const Links = getNavLinks().filter(link => link.text !== 'ثبت نام / ورود')
 
     const openmenu = async () => {
         const menu = document.getElementById('menu');
@@ -98,6 +98,9 @@ const Navbar = () => {
                                 </Link>
                             </li>
                         }
+                        // else if (role === 'client') {
+
+                        // }
                     })()}
                 </ul>
 
