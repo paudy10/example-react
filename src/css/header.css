@@ -44,7 +44,7 @@
 .gray-screen {
     top: 0;
     right: 0;
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 100vw;
     display: none;
@@ -54,8 +54,8 @@
 
 .menu {
     z-index: 3;
-    position: absolute;
-    height: 100vh;
+    position: fixed;
+    height: 100%;
     width: 60vw;
     background-color: rgb(255, 255, 255);
     border-left: 1px solid rgba(95, 95, 95, 0.733);
