@@ -21,7 +21,7 @@ const Navbar = () => {
         let i = 0
         for (let index = 0; index < 61; index++) {
             menu.style.transform = `translateX(${i--}vw)`;
-            await sleep(0.1);
+            await sleep(1);
         }
         menu.style.display = 'block'; gray.style.display = 'block';
         function sleep(ms) {
