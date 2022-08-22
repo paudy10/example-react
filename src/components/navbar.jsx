@@ -4,14 +4,13 @@ import { BsXLg } from 'react-icons/bs';
 import getNavLinks from '../services/navLinks';
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
-
+import adminlinks from '../services/adminLinks';
 
 
 const Navbar = () => {
 
-    
+    const adminlink = adminlinks()
     const role = useSelector(state => state.userDetail.role)
-
     const Links = getNavLinks().filter(link => link.text !== 'ثبت نام / ورود')
 
     const openmenu = async () => {
@@ -73,24 +72,19 @@ const Navbar = () => {
                 <hr style={{ width: '80%', marginRight: '10%' }}></hr>
 
                 <ul className="mynav nav flex-column">
-                    {Links.map(nav => (
-                        <li className="nav-item" key={nav.id}>
-                            <Link className="nav-link" to={nav.link} onClick={closemenu}>
-                                <span className={nav.icon + " nav-link-icon"} />
-                                <span className="nav-link-text">{nav.text}</span>
-                            </Link>
-                        </li>
-                    ))}
                     {(() => {
-                        if (role === 'user') {
-                            return <li className="nav-item" key='user-dash'>
-                                <Link className="nav-link" to='/dashboard' onClick={closemenu}>
-                                    <span className={"fa fa-book nav-link-icon"} />
-                                    <span className="nav-link-text">داشبورد</span>
-                                </Link>
-                            </li>
+                        if (role === 'admin') {
+                            return adminlink.map(nav => (
+                                <li className="nav-item" key={nav.id}>
+                                    <Link className="nav-link" to={nav.link} onClick={closemenu}>
+                                        <span className={nav.icon + " nav-link-icon"} />
+                                        <span className="nav-link-text">{nav.text}</span>
+                                    </Link>
+                                </li>
+                            ))
+
                         }
-                        else if (role === 'admin') {
+                        else if (role === 'user') {
                             return <li className="nav-item" key='admin-dash'>
                                 <Link className="nav-link" to='admin/dashboard' onClick={closemenu}>
                                     <span className={"fa fa-book nav-link-icon"} />
@@ -98,9 +92,17 @@ const Navbar = () => {
                                 </Link>
                             </li>
                         }
-                        // else if (role === 'client') {
+                        else if (role === 'client') {
+                            return Links.map(nav => (
+                                <li className="nav-item" key={nav.id}>
+                                    <Link className="nav-link" to={nav.link} onClick={closemenu}>
+                                        <span className={nav.icon + " nav-link-icon"} />
+                                        <span className="nav-link-text">{nav.text}</span>
+                                    </Link>
+                                </li>
+                            ))
 
-                        // }
+                        }
                     })()}
                 </ul>
 

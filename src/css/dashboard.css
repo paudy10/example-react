@@ -1,0 +1,64 @@
+.dashboard-div {
+    margin-top: 2vh !important;
+    width: 94vw;
+    margin-right: 3vw !important;
+}
+
+.welcome {
+    margin-top: 4vh !important;
+    margin-right: 2vw !important;
+}
+
+.username {
+    color: var(--main-color);
+    font-size: 17px;
+    margin-left: 1vw !important;
+}
+
+.welcome p {
+    color: rgb(66, 66, 66);
+    font-size: 14px;
+}
+
+.dash-nav {
+    display: none;
+}
+
+.dash-div {
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    justify-content: center;
+    min-height: 70vh;
+    padding-top: 3vh !important;
+    border-radius: 20px;
+    /* box-shadow: 0px 0px 2px 0.5px rgba(19, 19, 19, 0.178); */
+    border: 1px solid rgb(236, 236, 236);
+}
+
+@media only screen and (min-width: 660px) {
+
+    .dash-nav {
+        background-color: rgb(247, 247, 247);
+        display: flex;
+        margin-left: 5vw !important;
+        height: 70vh;
+        padding-top: 3vh !important;
+        border-radius: 20px;
+    }
+
+    .admin-nav {
+        margin-top: 3vh !important;
+        margin-right: -2vw !important;
+    }
+
+    .crc {
+        display: inline-flex;
+        height: 1.4vh;
+        border-radius: 100px;
+        width: 0.7vw;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(155, 51, 240);
+        margin-left: 0.7vw !important;
+    }
+
+}
