@@ -8,17 +8,21 @@ import config from '../../config.json';
 import {
     useNavigate,
 } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateUserDetailsAction } from '../../userDetailSlice';
 
 
 
 const AdminLogin = () => {
 
-
+    const role = useSelector(state => state.userDetail.role)
     const dispatch = useDispatch();
     let password, email;
     const navigate = useNavigate();
+
+    if (role === 'admin') {
+        navigate('/admin/dashboard')
+    }
 
     const onChangeInput = () => {
         password = document.getElementById('login3Password').value;
