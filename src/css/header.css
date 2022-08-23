@@ -131,18 +131,42 @@
 .desklinks {
     display: none !important;
 }
+
 .nolinkdecoration:link {
     text-decoration: none;
     color: black !important;
 }
+
+.header-title {
+    margin-right: 6vw !important;
+    color: #333;
+}
+.header-title:hover {
+    color: #000;
+}
 @media only screen and (min-width: 660px) {
-    .menu-icon {
+
+    .menu-icon,
+    .newmenu,
+    #react-burger-menu-btn , .bm-icon , .bm-burger-button , .bm-overlay {
         display: none;
     }
 
+    .header-title {
+        margin-right: 0px !important;
+    }
     .inline-menu,
     .nav-link-items,
     .desklinks {
         display: inline-flex !important;
     }
+}
+
+.bm-cross-button {
+    position: absolute;
+    display: block;
+    height: 24px;
+    width: 24px;
+    margin-right: 80% !important;
+    margin-top: 1.5% !important;
 }

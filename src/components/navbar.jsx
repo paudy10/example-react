@@ -5,7 +5,7 @@ import getNavLinks from '../services/navLinks';
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import adminlinks from '../services/adminLinks';
-
+import { slide as Menu } from 'react-burger-menu';
 
 const Navbar = () => {
 
@@ -60,18 +60,60 @@ const Navbar = () => {
 
     }
 
-
+    var styles = {
+        bmBurgerButton: {
+            position: 'absolute',
+            width: '18px',
+            height: '15px',
+            right: '22px',
+            top: '17px'
+        },
+        bmBurgerBars: {
+            background: '#777'
+        },
+        bmBurgerBarsHover: {
+            background: '#888'
+        },
+        bmCrossButton: {
+            height: '24px',
+            width: '24px'
+        },
+        bmCross: {
+            background: '#999'
+        },
+        bmMenuWrap: {
+            position: 'fixed',
+            top: 0,
+            height: '100%'
+        },
+        bmMenu: {
+            background: '#fff',
+            padding: '2.5em 1.5em 0',
+            fontSize: '1.15em'
+        },
+        bmMorphShape: {
+            fill: '#373a47'
+        },
+        bmItemList: {
+            color: '#b8b7ad',
+            padding: '0'
+        },
+        bmItem: {
+            display: 'inline-block'
+        },
+        bmOverlay: {
+            background: 'rgba(0, 0, 0, 0.3)',
+            top: 0
+        }
+    }
 
     return (
         <React.Fragment>
-            <BsList className='menu-icon' onClick={openmenu} />
-            <div className='gray-screen' id='gray-screen'></div>
-            <div className='menu' id='menu'>
-                <BsXLg className='close-menu' id='close-menu' onClick={closemenu} />
-                <p className='app-title'>اَپلیکیشن ساز</p>
-                <hr style={{ width: '80%', marginRight: '10%' }}></hr>
+            <Menu className='newmenu' styles={styles} right >
+                <p className='app-title' style={{ color: 'black', fontSize: '15px', marginRight: '9%' }}>اَپلیکیشن ساز</p>
+                <hr style={{ width: '80%', marginRight: '10%', marginTop: '0' }}></hr>
 
-                <ul className="mynav nav flex-column">
+                <ul style={{ marginTop: '-3vh', marginRight: '2vw' }} className="mynav nav flex-column">
                     {(() => {
                         if (role === 'admin') {
                             return adminlink.map(nav => (
@@ -105,8 +147,8 @@ const Navbar = () => {
                         }
                     })()}
                 </ul>
+            </Menu>
 
-            </div>
         </React.Fragment >
     );
 }

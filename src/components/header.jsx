@@ -17,7 +17,7 @@ const Header = () => {
     const role = useSelector(state => state.userDetail.role)
     return (
         <div className='header' >
-            <span className='title'><Navbar role={role} className='menu' title='اَپلیکیشن ساز' /> <Link to='/' className='nolinkdecoration' style={{ color: '#333' }}>اَپلیکیشن ساز</Link> </span>
+            <span className='title'><Navbar role={role} className='menu' title='اَپلیکیشن ساز' /> <Link to='/' className='nolinkdecoration header-title' >اَپلیکیشن ساز</Link> </span>
             <span className='d-inline inline-menu' style={{ marginTop: '2.5vh', marginRight: '3vw' }}>
                 {Links.map(nav => (
                     <Link key={nav.id} className="nav-link-items" to={nav.link}>
