@@ -28,6 +28,7 @@ import Allusers from './components/Admin/component/allUsers';
 import BlogList from './components/Admin/component/blogList';
 import NewBlog from './components/Admin/component/newBlog';
 import Contactpm from './components/Admin/component/contactpm';
+import User from './components/Admin/component/User';
 
 const App = () => {
 
@@ -62,6 +63,7 @@ const App = () => {
             <Route path='/admin/newblog' element={<AdminDashboard component={<NewBlog />} />}></Route>
             <Route path='/admin/bloglist' element={<AdminDashboard component={<BlogList />} />}></Route>
             <Route path='/admin/allusers' element={<AdminDashboard component={<Allusers />} />}></Route>
+            <Route path='/admin/user/:id' element={<AdminDashboard component={<User />} />}></Route>
             <Route path='/admin/contactpm' element={<AdminDashboard component={<Contactpm />} />}></Route>
 
 

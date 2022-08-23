@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Container, Row, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { getusers } from '../../../services/getdata';
 class AllUsers extends React.Component {
     state = {
@@ -32,7 +33,7 @@ class AllUsers extends React.Component {
                         <p style={{ display: 'flex', alignItem: 'center', justifyContent: 'center' }}>لیست کاربران</p>
                     </Col>
                 </Row>
-                <hr style={{width:'60%' , color: '#ccc' , marginTop : '0' , marginRight : '20%'}} />
+                <hr style={{ width: '60%', color: '#ccc', marginTop: '0', marginRight: '20%' }} />
                 <Row>
                     <Table
                         bordered
@@ -53,14 +54,22 @@ class AllUsers extends React.Component {
                         <tbody>
                             {Users.map((user) => {
                                 return (
+
+
                                     <tr>
                                         <td>
-                                            {user.username}
+                                            <Link className='nolinkdecoration' style={{color : 'black'}} to={`/admin/user/${user.email}`}>
+                                                {user.username}
+                                            </Link>
                                         </td>
                                         <td>
-                                            {user.email}
+                                            <Link className='nolinkdecoration' style={{color : 'black'}} to={`/admin/user/${user.email}`}>
+                                                {user.email}
+                                            </Link>
                                         </td>
                                     </tr>
+
+
                                 )
                             })}
                         </tbody>
