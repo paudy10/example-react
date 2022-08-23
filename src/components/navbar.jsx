@@ -83,8 +83,8 @@ const Navbar = () => {
 
                         }
                         else if (role === 'user') {
-                            return <li className="nav-item" key='admin-dash'>
-                                <Link className="nav-link" to='admin/dashboard' >
+                            return <li className="nav-item" key='user-dash'>
+                                <Link className="nav-link" to='/dashboard' >
                                     <span className={"fa fa-book nav-link-icon"} />
                                     <span className="nav-link-text">داشبورد</span>
                                 </Link>
