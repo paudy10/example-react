@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getusers } from '../../../services/getdata';
+import '../../../css/user.css';
 class AllUsers extends React.Component {
     state = {
         Users: [],
@@ -35,45 +36,52 @@ class AllUsers extends React.Component {
                 </Row>
                 <hr style={{ width: '60%', color: '#ccc', marginTop: '0', marginRight: '20%' }} />
                 <Row>
-                    <Table
-                        bordered
-                        hover
-                        responsive
-                        striped
-                        style={{ width: '90%', marginRight: '5%' }}>
-                        <thead>
-                            <tr>
-                                <th>
-                                    نام
-                                </th>
-                                <th>
-                                    ایمیل
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {Users.map((user) => {
-                                return (
+                    <p className='help1text'><span className='crc '></span> با کلیک بر روی نام کاربر مورد نظر خود , وارد پروفایل کاربر می شوید !</p>
+                </Row>
+                <Row >
+                    <Col sm={1}></Col>
+                    <Col className='tableStyle' sm={10}>
+                        <Table
+
+                            hover
+                            responsive
+                            striped
+                        >
+                            <thead>
+                                <tr>
+                                    <th style={{ textAlign: 'center' }}>
+                                        نام
+                                    </th>
+                                    <th style={{ textAlign: 'center' }}>
+                                        ایمیل
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {Users.map((user) => {
+                                    return (
 
 
-                                    <tr>
-                                        <td>
-                                            <Link className='nolinkdecoration' style={{color : 'black'}} to={`/admin/user/${user.email}`}>
-                                                {user.username}
-                                            </Link>
-                                        </td>
-                                        <td>
-                                            <Link className='nolinkdecoration' style={{color : 'black'}} to={`/admin/user/${user.email}`}>
-                                                {user.email}
-                                            </Link>
-                                        </td>
-                                    </tr>
+                                        <tr key={user.email} className='userItem' >
+                                            <td>
+                                                <Link className='nolinkdecoration' style={{ color: 'black' }} to={`/admin/user/${user.email}`}>
+                                                    {user.username}
+                                                </Link>
+                                            </td>
+                                            <td>
+                                                <Link className='nolinkdecoration' style={{ color: 'black' }} to={`/admin/user/${user.email}`}>
+                                                    {user.email}
+                                                </Link>
+                                            </td>
+                                        </tr>
 
 
-                                )
-                            })}
-                        </tbody>
-                    </Table>
+                                    )
+                                })}
+                            </tbody>
+                        </Table>
+                    </Col>
+                    <Col sm={1}></Col>
 
 
 
