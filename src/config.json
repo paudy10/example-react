@@ -9,5 +9,6 @@
     "api_post_contact": "/api/v1/sendContactForm",
     "api_get_contact": "/api/v1/getcontact",
     "api_getUsers": "/api/v1/getusers",
-    "api_delUser": "/api/v1/deleteuser"
+    "api_delUser": "/api/v1/deleteuser",
+    "api_delpm": "/api/v1/deletecontact"
 }

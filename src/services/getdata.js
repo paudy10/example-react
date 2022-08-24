@@ -9,6 +9,9 @@ export function getprice() {
 export function getusers() {
     return fetch(`${config.baseUrl}${config.api_getUsers}`);
 }
+export function getpm() {
+    return fetch(`${config.baseUrl}${config.api_get_contact}`);
+}
 export function signup(data) {
     fetch(`${config.baseUrl}${config.api_signup}`, {
         method: 'POST',
