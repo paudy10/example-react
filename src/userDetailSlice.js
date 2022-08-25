@@ -6,7 +6,8 @@ const initialState = {
     role: 'client',
     username: '',
     email: '',
-    password: ''
+    password: '',
+    id: ''
 }
 
 function updateUserDetails(state) {
@@ -14,6 +15,7 @@ function updateUserDetails(state) {
     if (token != null) {
         var decoded = jwt_decode(token);
         state.email = decoded.details.email;
+        state.id = decoded.details.id
         state.username = decoded.details.username;
         state.password = decoded.details.password;
         if (decoded.details.isUser === true) {

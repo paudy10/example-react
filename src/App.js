@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateUserDetailsAction } from './userDetailSlice';
 
 import Myfooter from './components/footer';
@@ -33,6 +33,7 @@ import User from './components/Admin/component/User';
 const App = () => {
 
   const dispatch = useDispatch()
+  const user = useSelector(state => state.userDetail)
 
   useEffect(() => {
     dispatch(updateUserDetailsAction())
@@ -61,7 +62,7 @@ const App = () => {
             <Route path='/admin/login' element={<AdminLogin />}></Route>
             <Route path='/admin/dashboard' element={<AdminDashboard component={<AdminDash />} />}></Route>
             <Route path='/admin/newblog' element={<AdminDashboard component={<NewBlog />} />}></Route>
-            <Route path='/admin/bloglist' element={<AdminDashboard component={<BlogList />} />}></Route>
+            <Route path='/admin/bloglist' element={<AdminDashboard component={<BlogList user={user} />} />}></Route>
             <Route path='/admin/allusers' element={<AdminDashboard component={<Allusers />} />}></Route>
             <Route path='/admin/user/:id' element={<AdminDashboard component={<User />} />}></Route>
             <Route path='/admin/contactpm' element={<AdminDashboard component={<Contactpm />} />}></Route>
