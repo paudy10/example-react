@@ -19,7 +19,13 @@ function updateUserDetails(state) {
         state.id = decoded.details.id
         state.username = decoded.details.username;
         state.password = decoded.details.password;
-        state.plan = decoded.details.plan;
+        if (decoded.details.plan === 'PlanFree') {
+            state.plan  = "رایگان"
+        }
+        else {
+            state.plan = "غیر رایگان"
+        }
+
         if (decoded.details.isUser === true) {
             (state.role = 'user')
         } else if (decoded.details.isAdmin === true) {

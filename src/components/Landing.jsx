@@ -11,9 +11,6 @@ import Emoji from './Emoji';
 
 class Landing extends Component {
     state = {}
-    comingsoon() {
-        alert('coming soon !');
-    }
 
     render() {
         const counter = getCounter();
@@ -28,7 +25,7 @@ class Landing extends Component {
                         <p className='field-purple'><p className='welcome-text1'>به اَپلیکیشن ساز خوش آمدید</p></p>
                         <p className='welcome-text2'>اینجا میتونی بدون دانش برنامه نویسی اَپلیکیشن خودت رو با کلی امکانات به سادگی و فقط با چند کلیک  درست کنی ! </p>
                         <Row className='welcome-buttons'>
-                            <Col className='create-app-button'><Button onClick={this.comingsoon}>ساخت اَپلیکیشن</Button></Col>
+                            <Col className='create-app-button'><Button><Link to='/appsaz' className='nolinkdecoration' >ساخت اَپلیکیشن</Link></Button></Col>
                             <Col className='prices-button'><Button><Link to='/prices' className='nolinkdecoration' >تعرفه ها</Link></Button></Col>
                         </Row>
                     </Col>
