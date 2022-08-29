@@ -7,7 +7,8 @@ const initialState = {
     username: '',
     email: '',
     password: '',
-    id: ''
+    id: '',
+    plan: ''
 }
 
 function updateUserDetails(state) {
@@ -18,6 +19,7 @@ function updateUserDetails(state) {
         state.id = decoded.details.id
         state.username = decoded.details.username;
         state.password = decoded.details.password;
+        state.plan = decoded.details.plan;
         if (decoded.details.isUser === true) {
             (state.role = 'user')
         } else if (decoded.details.isAdmin === true) {
