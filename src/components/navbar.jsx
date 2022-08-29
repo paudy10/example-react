@@ -3,11 +3,13 @@ import getNavLinks from '../services/navLinks';
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import adminlinks from '../services/adminLinks';
+import userlinks from '../services/userLinks';
 import { slide as Menu } from 'react-burger-menu';
 
 const Navbar = () => {
 
     const adminlink = adminlinks()
+    const userlink = userlinks()
     const role = useSelector(state => state.userDetail.role)
     const Links = getNavLinks().filter(link => link.text !== 'ثبت نام / ورود')
 
@@ -23,7 +25,7 @@ const Navbar = () => {
         },
         bmBurgerBars: {
             background: '#9936f5',
-            borderRadius:'100px'
+            borderRadius: '100px'
         },
         bmBurgerBarsHover: {
             background: '#888'
@@ -34,7 +36,7 @@ const Navbar = () => {
         },
         bmCross: {
             background: '#9936f5',
-            borderRadius:'10px'
+            borderRadius: '10px'
         },
         bmMenuWrap: {
             position: 'fixed',
@@ -83,12 +85,14 @@ const Navbar = () => {
 
                         }
                         else if (role === 'user') {
-                            return <li className="nav-item" key='user-dash'>
-                                <Link className="nav-link" to='/dashboard' >
-                                    <span className={"fa fa-book nav-link-icon"} />
-                                    <span className="nav-link-text">داشبورد</span>
-                                </Link>
-                            </li>
+                            return userlink.map(nav => (
+                                <li className="nav-item" key={nav.id}>
+                                    <Link className="nav-link" to={nav.link} >
+                                        <span className={nav.icon + " nav-link-icon"} />
+                                        <span className="nav-link-text">{nav.text}</span>
+                                    </Link>
+                                </li>
+                            ))
                         }
                         else if (role === 'client') {
                             return Links.map(nav => (

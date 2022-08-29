@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Row, Col, Container } from 'react-bootstrap'
 
-const Dashboard = () => {
+import '../../css/dashboard.css';
+import UserNavbar from './component/navbar';
+
+const Dashboard = (props) => {
 
     const navigate = useNavigate();
     const user = useSelector(state => state.userDetail)
@@ -10,17 +14,27 @@ const Dashboard = () => {
     useEffect(() => {
 
         if (user.role === 'client' || user.role === 'admin') {
-            navigate('/login')
+            navigate('/admin/login')
         }
 
     })
 
     return (
-        <>
-            <h2>users Dashboard (Protected)</h2>
-
-            <div>hi {user.username}</div>
-        </>
+        <React.Fragment>
+            <Container>
+                <Row className='welcome'>
+                    <p><span className='username'>{user.username}</span> عزیز , به داشبورد اَپ ساز خوش آمدید !</p>
+                </Row>
+                <Row className='dashboard-div'>
+                    <Col lg={2} md={2} sm={0} className='dash-nav'>
+                        <UserNavbar />
+                    </Col>
+                    <Col lg={9} md={9} sm={12} className='dash-div' >
+                        {props.component}
+                    </Col>
+                </Row>
+            </Container>
+        </React.Fragment>
     );
 };
 
