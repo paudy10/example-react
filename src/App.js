@@ -61,8 +61,8 @@ const App = () => {
             <Route path='/blog/:id' element={<Post />}></Route>
 
             <Route path='/dashboard' element={<Dashboard component={<UserDashboard />} />}></Route>
-            <Route path='/appsaz' element={<Dashboard component={<AppSaz />} />}></Route>
-    
+            <Route path='/appsaz' element={<Dashboard component={<AppSaz user={user} />} />}></Route>
+
             <Route path='/admin/login' element={<AdminLogin />}></Route>
             <Route path='/admin/dashboard' element={<AdminDashboard component={<AdminDash />} />}></Route>
             <Route path='/admin/newblog' element={<AdminDashboard component={<NewBlog />} />}></Route>

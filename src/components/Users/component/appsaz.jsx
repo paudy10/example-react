@@ -1,27 +1,184 @@
-
 import React from 'react';
-import { Container, Col, Row } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { Col, Container, Row, Table, Button, Input } from 'reactstrap';
+import axios from 'axios';
+import { toast } from 'react-toastify'
+import { getapps } from '../../../services/getdata';
+import config from '../../../config.json';
+import '../../../css/user.css';
+class AppSaz extends React.Component {
+    state = {
+        apps: [],
+        DataisLoaded: false,
+        title: ''
+    }
 
-const AppSaz = () => {
+    async componentDidMount() {
+        await getapps()
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({
+                    apps: json,
+                    DataisLoaded: true
+                });
+            })
+    }
+
+    async deleteApp(title) {
+        await axios.post(`${config.baseUrl}${config.api_delapps}`, {
+            "title": title
+        })
+            .then(res => toast.success(res.data.msg, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            }))
+            .catch(err => toast.error(err.response.data.msg, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            }))
+    }
 
 
-    const user = useSelector(state => state.userDetail)
+    async createApp() {
+        const user = this.props.user;
+        const title = document.getElementById('appName').value
+        await axios.post(`${config.baseUrl}${config.api_createapps}`, {
+            "title": title,
+            "creator": user.email
+        })
+            .then(res => toast.success(res.data.msg, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            }))
+            .catch(err => toast.error(err.response.data.msg, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            }))
+    }
 
-    return (
-        <Container >
-            <Row className='dashtop'>
-                <Row style={{ textAlign: 'center' }}>
-                    <Col style={{ color: 'var(--main-color)' }}>پلن شما</Col>
+    render() {
+        const { DataisLoaded, apps } = this.state;
+        const user = this.props.user;
+        if (!DataisLoaded) return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
+            <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+        </div>;
+        var appexist = false;
+        const thisApp = apps.map((App) => {
+
+            if (App.creator === user.email) {
+                appexist = true;
+                return (
+                    <tr key={App._id} className='AppItem' >
+                        <td>
+                            <div className='nolinkdecoration' style={{ color: 'black', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                                <p style={{ marginTop: '2vh' }}>{App.title}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <div className='nolinkdecoration' style={{ color: 'black', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                                <p style={{ marginTop: '2vh' }}>{App.creator}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <Button id={App.title} onClick={() => this.deleteApp(App.title)} className='deleteUserBtn' style={{ width: '18%', marginRight: '41%', fontSize: '13px', paddingTop: '10px', marginTop: '0.8vh' }}><i className='fa fa-trash'></i></Button>
+                        </td>
+                    </tr>
+                )
+            }
+            else {
+                return ''
+            }
+        })
+        return (
+            <Container>
+                <Row>
+                    <Col>
+                        <p style={{ display: 'flex', alignItem: 'center', justifyContent: 'center' }}>اَپلیکیشن</p>
+                    </Col>
                 </Row>
-                <hr style={{ marginTop: '2vh', width: '60%', marginRight: '20%', color: '#ccc' }} />
-                <Row style={{ textAlign: 'center' }}>
-                    <Col>{user.plan}</Col>
+                <hr style={{ width: '60%', color: '#ccc', marginTop: '0', marginRight: '20%' }} />
+                <Row>
+                    <Col style={{color : 'var(--main-color)'}}>
+                        <p style={{marginRight:'20px',fontSize:'0.9rem'}}><span className='crc'></span>نام اَپ را بدون فاصله وارد کنید !</p>
+                        <p style={{marginRight:'20px',fontSize:'0.9rem'}}><span className='crc'></span>این نام به عنوان آدرس اَپلیکیشن شما خواهد بود !</p>
+                    </Col>
+                </Row>
+                <Row >
+                    <Col sm={1}></Col>
+                    <Col className='tableStyle' sm={10}>
+                        {(() => {
+                            if (appexist) {
+                                return (<Table
+
+                                    hover
+                                    responsive
+                                    striped
+                                >
+                                    <thead>
+                                        <tr>
+                                            <th style={{ textAlign: 'center' }}>
+                                                عنوان
+                                            </th>
+                                            <th style={{ textAlign: 'center' }}>
+                                                سازنده
+                                            </th>
+                                            <th style={{ textAlign: 'center' }}>
+                                                حذف اَپ
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {thisApp}
+                                    </tbody>
+                                </Table>)
+                            }
+                            else {
+                                return (
+                                    <Container>
+                                        <Row>
+                                            <Col>
+                                                <div>
+                                                    <Input type="text" style={{ margin: '20px 0px', width: '90%', marginRight: '5%' }} name="text" id="appName" placeholder="عنوان اَپ : " />
+                                                </div>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Button id="createApp" onClick={() => this.createApp()} style={{ backgroundImage: 'var(--gradient-color)', border: 'none', width: '30%', marginRight: '35%', marginTop: '5px', marginBottom: '10px' }}>ثبت اَپ</Button>
+                                        </Row>
+                                    </Container>
+                                )
+                            }
+                        })()}
+
+                    </Col>
+                    <Col sm={1}></Col>
+
+
+
 
                 </Row>
-            </Row>
-        </Container>
-    )
+            </Container>
+        )
+    }
 }
-
 export default AppSaz;
