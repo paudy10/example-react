@@ -5,7 +5,7 @@ import '../css/login.css';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import config from '../config.json';
-
+import Loading from './Loading';
 class SignUp extends Component {
 
     constructor(props) {
@@ -28,17 +28,19 @@ class SignUp extends Component {
         })
     }
 
-
+    preventDefault(e) {
+        e.preventDefault();
+    }
     async onSubmitForm(e) {
         e.preventDefault();
-
+        document.getElementById('login-button').innerHTML = 'لطفا منتظر بمانید ...';
         await axios.post(`${config.baseUrl}${config.api_signup}`, {
             "username": this.state.username,
             "email": this.state.email,
             "password": this.state.password
         })
             .then(res =>
-                toast.success(res.data.msg, {
+                ((toast.success(res.data.msg, {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -46,9 +48,10 @@ class SignUp extends Component {
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                })
+                }),
+                document.getElementById('login-button').innerHTML = 'ثبت نام'))
             )
-            .catch(err => toast.error(err.response.data.msg, {
+            .catch((err) => ((toast.error(err.response.data.msg, {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -56,8 +59,9 @@ class SignUp extends Component {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-            }))
-
+            }),
+                document.getElementById('login-button').innerHTML = 'ثبت نام'))
+            )
 
 
     };
@@ -83,6 +87,7 @@ class SignUp extends Component {
                                     <Input type="password" onKeyDown={this.onChangeInput} onChange={this.onChangeInput} name="password" id="loginPassword" placeholder="رمزعبور خود را وارد کنید ..." />
                                 </FormGroup>
                                 <Button className='btn mt-2' style={{ color: 'white' }} id='login-button' onClick={this.onSubmitForm}>ثبت نام</Button>
+                                <Button className='dnone' id='loading-button' onClick={this.preventDefault} style={{ backgroundColor: 'gray', height: '6vh' }} ><Loading type={'spin'} width={25} /></Button>
                             </Form>
                         </Row>
                     </Container>

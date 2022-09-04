@@ -10,7 +10,8 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserDetailsAction } from '../../userDetailSlice';
-
+import Loading from '../Loading';
+import '../../css/contact.css';
 
 
 const AdminLogin = () => {
@@ -29,6 +30,9 @@ const AdminLogin = () => {
         email = document.getElementById('login3email').value;
     }
 
+    const preventDefault = (e) => {
+        e.preventDefault();
+    }
 
     const onSubmitLogin = async (e) => {
         e.preventDefault();
@@ -37,7 +41,7 @@ const AdminLogin = () => {
             "email": email,
             "password": password
         })
-            .then(res => ((toast.success(res.data.msg, {
+            .then((res) => ((toast.success(res.data.msg, {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -54,7 +58,7 @@ const AdminLogin = () => {
                 //create and save token (jwt)
                 // example for save token localStorage.setItem("token",this.state.password)
             ))
-            .catch(err => toast.error(err.response.data.msg, {
+            .catch((err) => toast.error(err.response.data.msg, {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -63,7 +67,6 @@ const AdminLogin = () => {
                 draggable: true,
                 progress: undefined,
             }))
-
 
 
     };
@@ -84,6 +87,8 @@ const AdminLogin = () => {
                                 <Input type="password" onKeyDown={onChangeInput} onChange={onChangeInput} name="password" id="login3Password" placeholder="رمزعبور خود را وارد کنید ..." />
                             </FormGroup>
                             <Button className='btn mt-2' style={{ color: 'white' }} id='login-button' onClick={onSubmitLogin}>ورود</Button>
+                        <Button className='dnone' id='loading-button' onClick={preventDefault} style={{ backgroundColor: 'gray', height: '6vh'  }} ><Loading type={'spin'} width={25} /></Button>
+
                         </Form>
                     </Row>
                 </Container>

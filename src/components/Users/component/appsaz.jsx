@@ -48,15 +48,49 @@ class AppSaz extends React.Component {
             }))
     }
 
-
+    preventDefault(e) {
+        e.preventDefault();
+    }
     async createApp() {
         const user = this.props.user;
         const title = document.getElementById('appName').value
-        await axios.post(`${config.baseUrl}${config.api_createapps}`, {
-            "title": title,
-            "creator": user.email
-        })
-            .then(res => toast.success(res.data.msg, {
+        var btn = document.getElementById('createApp')
+        alert(title)
+        var btn2 = document.getElementById('loading-button')
+        btn.classList.add('dnone')
+        btn2.classList.remove('dnone')
+        if (title.length > 3) {
+            await axios.post(`${config.baseUrl}${config.api_createapps}`, {
+                "title": title,
+                "creator": user.email
+            })
+                .then(res => ((toast.success(res.data.msg, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                }),
+                    btn2.classList.add('dnone'),
+                    btn.classList.remove('dnone')))
+                )
+                .catch(err => ((toast.error(err.response.data.msg, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined
+                }),
+                    btn2.classList.add('dnone'),
+                    btn.classList.remove('dnone')))
+                )
+        }
+        else {
+            toast.error('نام اَپ باید بیشتر از 3 حرف باشد !', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -64,16 +98,12 @@ class AppSaz extends React.Component {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined
-            }))
-            .catch(err => toast.error(err.response.data.msg, {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined
-            }))
+            })
+            btn2.classList.add('dnone')
+            btn.classList.remove('dnone')
+
+        }
+
     }
 
     render() {
@@ -174,6 +204,7 @@ class AppSaz extends React.Component {
                                         </Row>
                                         <Row>
                                             <Button id="createApp" onClick={() => this.createApp()} style={{ backgroundImage: 'var(--gradient-color)', border: 'none', width: '30%', marginRight: '35%', marginTop: '5px', marginBottom: '10px' }}>ثبت اَپ</Button>
+                                            <Button className='dnone' id='loading-button' onClick={this.preventDefault} style={{ backgroundColor: 'gray', height: '5.5vh' , textAlign:'center',width: '30%', marginRight: '35%', marginTop: '5px', marginBottom: '10px' , alignItems:'center' , justifyContent:'center' }} ><Loading className='dflex' style={{textAlign:'center'}} type={'spin'} width={25} /></Button>
                                         </Row>
                                     </Container>
                                 )
