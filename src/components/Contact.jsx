@@ -5,7 +5,7 @@ import '../css/contact.css';
 import { toast } from 'react-toastify';
 import config from '../config.json';
 import axios from 'axios';
-
+import Loading from './Loading';
 const Contact = () => {
 
     let username, email, desc;
@@ -17,15 +17,21 @@ const Contact = () => {
     }
 
 
+    const preventDefault = (e) => {
+        e.preventDefault();
+    }
     const onSubmitForm = async (e) => {
         e.preventDefault();
-
+        var btn = document.getElementById('send-pm-button')
+        var btn2 = document.getElementById('loading-button')
+        btn.classList.add('dnone')
+        btn2.classList.remove('dnone')
         await axios.post(`${config.baseUrl}${config.api_post_contact}`, {
             "email": email,
             "username": username,
             "desc": desc
         })
-            .then((res) => toast.success('پیام شما با موفقیت ارسال شد !', {
+            .then((res) => ((toast.success('پیام شما با موفقیت ارسال شد !', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -33,8 +39,13 @@ const Contact = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined
-            }))
-            .catch(err => toast.error('پر کردن تمام فیلد ها الزامی است !', {
+            }),
+                btn2.classList.add('dnone'),
+                btn.classList.remove('dnone')
+
+            ))
+            )
+            .catch(err => ((toast.error('پر کردن تمام فیلد ها الزامی است !', {
                 position: "top-center",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -42,7 +53,12 @@ const Contact = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined
-            }))
+            }),
+                btn2.classList.add('dnone'),
+                btn.classList.remove('dnone')
+
+            ))
+            )
 
     };
 
@@ -73,6 +89,7 @@ const Contact = () => {
                                     </FormGroup>
 
                                     <Button onClick={onSubmitForm} id='send-pm-button' >ارسال پیام</Button>
+                                    <Button className='dnone' id='loading-button' onClick={preventDefault} style={{ backgroundColor: 'gray', height: '6vh' }} ><Loading type={'spin'} width={25} /></Button>
                                 </Form>
                             </Row>
                         </Container>
