@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import '../css/post.css';
 import { getblog } from '../services/getdata';
-
+import Loading from './Loading';
 class Post extends React.Component {
     state = {
         post: [],
@@ -28,11 +28,15 @@ class Post extends React.Component {
 
     render() {
         const { DataisLoaded, post, id } = this.state;
-        if (!DataisLoaded) {
-            return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        if (!DataisLoaded) return <React.Fragment>
+            <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
             </div>
-        }
+
+            <div className='mt-3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+            </div>
+        </React.Fragment>;
 
         const thispost = post.map((post) => {
 

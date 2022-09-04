@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import { getblog } from '../../../services/getdata';
 import config from '../../../config.json';
 import '../../../css/user.css';
+import Loading from '../../Loading';
 class BlogList extends React.Component {
     state = {
         Blogs: [],
@@ -50,9 +51,18 @@ class BlogList extends React.Component {
 
         const { DataisLoaded, Blogs } = this.state;
         const user = this.props.user;
-        if (!DataisLoaded) return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
-            <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
-        </div>;
+        if (!DataisLoaded) return <Container>
+            <Row>
+                <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+                </div>
+            </Row>
+            <Row>
+                <div className='mt-3' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+                </div>
+            </Row>
+        </Container>;
 
         const thisBlog = Blogs.map((blog) => {
             if (blog.author === user.id) {

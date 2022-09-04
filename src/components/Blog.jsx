@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'reactstrap';
 import '../css/blog.css';
+import Loading from './Loading';
 import { getblog } from '../services/getdata';
 class Blog extends React.Component {
     state = {
@@ -23,9 +24,15 @@ class Blog extends React.Component {
 
     render() {
         const { DataisLoaded, blog } = this.state;
-        if (!DataisLoaded) return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
-        </div>;
+        if (!DataisLoaded) return <React.Fragment>
+            <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+            </div>
+
+            <div className='mt-3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+            </div>
+        </React.Fragment>;
 
         return (
             <React.Fragment>

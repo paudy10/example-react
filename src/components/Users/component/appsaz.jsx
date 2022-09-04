@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import { getapps } from '../../../services/getdata';
 import config from '../../../config.json';
 import '../../../css/user.css';
+import Loading from '../../Loading';
 class AppSaz extends React.Component {
     state = {
         apps: [],
@@ -78,9 +79,18 @@ class AppSaz extends React.Component {
     render() {
         const { DataisLoaded, apps } = this.state;
         const user = this.props.user;
-        if (!DataisLoaded) return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
-            <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
-        </div>;
+        if (!DataisLoaded) return <Container>
+            <Row>
+                <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+                </div>
+            </Row>
+            <Row>
+                <div className='mt-3' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+                </div>
+            </Row>
+        </Container>;
         var appexist = false;
         const thisApp = apps.map((App) => {
 
@@ -117,9 +127,9 @@ class AppSaz extends React.Component {
                 </Row>
                 <hr style={{ width: '60%', color: '#ccc', marginTop: '0', marginRight: '20%' }} />
                 <Row>
-                    <Col style={{color : 'var(--main-color)'}}>
-                        <p style={{marginRight:'20px',fontSize:'0.9rem'}}><span className='crc'></span>نام اَپ را بدون فاصله وارد کنید !</p>
-                        <p style={{marginRight:'20px',fontSize:'0.9rem'}}><span className='crc'></span>این نام به عنوان آدرس اَپلیکیشن شما خواهد بود !</p>
+                    <Col style={{ color: 'var(--main-color)' }}>
+                        <p style={{ marginRight: '20px', fontSize: '0.9rem' }}><span className='crc'></span>نام اَپ را بدون فاصله وارد کنید !</p>
+                        <p style={{ marginRight: '20px', fontSize: '0.9rem' }}><span className='crc'></span>این نام به عنوان آدرس اَپلیکیشن شما خواهد بود !</p>
                     </Col>
                 </Row>
                 <Row >

@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
 import '../css/price.css';
 import { getprice } from '../services/getdata';
+import Loading from './Loading';
 class price extends React.Component {
     state = {
         Price: [],
@@ -22,9 +23,15 @@ class price extends React.Component {
 
     render() {
         const { DataisLoaded, Price } = this.state;
-        if (!DataisLoaded) return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
-        </div>;
+        if (!DataisLoaded) return <React.Fragment>
+            <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+            </div>
+
+            <div className='mt-3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+            </div>
+        </React.Fragment>;
 
         return (
             <React.Fragment>

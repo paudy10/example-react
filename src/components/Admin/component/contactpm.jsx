@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { getpm } from '../../../services/getdata';
 import UserContact from './common/userContactDiv';
-
+import Loading from '../../Loading';
 import '../../../css/contactpm.css';
 class contactpm extends React.Component {
     state = {
@@ -25,9 +25,18 @@ class contactpm extends React.Component {
 
     render() {
         const { DataisLoaded, pm } = this.state;
-        if (!DataisLoaded) return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
-            <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
-        </div>;
+        if (!DataisLoaded) return <Container>
+            <Row>
+                <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+                </div>
+            </Row>
+            <Row>
+                <div className='mt-3' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+                </div>
+            </Row>
+        </Container>;
         return (
             <Container>
                 <Row>

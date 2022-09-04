@@ -3,6 +3,7 @@ import { Col, Container, Row, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getusers } from '../../../services/getdata';
 import '../../../css/user.css';
+import Loading from '../../Loading';
 class AllUsers extends React.Component {
     state = {
         Users: [],
@@ -23,9 +24,18 @@ class AllUsers extends React.Component {
 
     render() {
         const { DataisLoaded, Users } = this.state;
-        if (!DataisLoaded) return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
-            <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
-        </div>;
+        if (!DataisLoaded) return <Container>
+            <Row>
+                <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+                </div>
+            </Row>
+            <Row>
+                <div className='mt-3' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+                </div>
+            </Row>
+        </Container>;
 
         return (
             <Container>

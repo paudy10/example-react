@@ -4,6 +4,8 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 import config from '../../../config.json';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Loading from '../../Loading';
+
 class User extends React.Component {
 
     state = {
@@ -57,9 +59,18 @@ class User extends React.Component {
         const email = url.split('/').pop();
 
         const { DataisLoaded, Users } = this.state;
-        if (!DataisLoaded) return <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
-            <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
-        </div>;
+        if (!DataisLoaded) return <Container>
+            <Row>
+                <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+                </div>
+            </Row>
+            <Row>
+                <div className='mt-3' style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+                </div>
+            </Row>
+        </Container>;
 
         const Username = Users.map((User) => {
             if (User.email === email) {
