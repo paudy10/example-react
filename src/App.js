@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateUserDetailsAction } from './userDetailSlice';
 
 import UserApp from './components/UserApp';
+import PageNotFound from './components/PageNotFound';
 import Myfooter from './components/footer';
 import Landing from './components/Landing';
 import Prices from './components/Prices';
@@ -32,6 +33,7 @@ import Contactpm from './components/Admin/component/contactpm';
 import User from './components/Admin/component/User';
 import UserDashboard from './components/Users/component/userDashboard';
 import AppSaz from './components/Users/component/appsaz';
+
 
 
 const App = () => {
@@ -74,7 +76,7 @@ const App = () => {
             <Route path='/admin/user/:id' element={<AdminDashboard component={<User />} />}></Route>
             <Route path='/admin/contactpm' element={<AdminDashboard component={<Contactpm />} />}></Route>
 
-
+            <Route path="*" element={<PageNotFound />} />
 
           </Routes>
         </div>
