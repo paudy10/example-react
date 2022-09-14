@@ -33,7 +33,7 @@ import Contactpm from './components/Admin/component/contactpm';
 import User from './components/Admin/component/User';
 import UserDashboard from './components/Users/component/userDashboard';
 import AppSaz from './components/Users/component/appsaz';
-
+import Allapps from './components/Admin/component/allApps';
 
 
 const App = () => {
@@ -75,6 +75,7 @@ const App = () => {
             <Route path='/admin/allusers' element={<AdminDashboard component={<Allusers />} />}></Route>
             <Route path='/admin/user/:id' element={<AdminDashboard component={<User />} />}></Route>
             <Route path='/admin/contactpm' element={<AdminDashboard component={<Contactpm />} />}></Route>
+            <Route path='/admin/allapps' element={<AdminDashboard component={<Allapps />} />}></Route>
 
             <Route path="*" element={<PageNotFound />} />
 

@@ -92,6 +92,16 @@ class User extends React.Component {
                 return '';
             }
         })
+        const Plan = Users.map((User) => {
+            if (User.email === email) {
+                return (
+                    <p>{User.plan}</p>
+                )
+            }
+            else {
+                return '';
+            }
+        })
         const Password = Users.map((User) => {
             if (User.email === email) {
                 return (
@@ -152,6 +162,14 @@ class User extends React.Component {
                             </Col>
                             <Col lg={6} sm={12}>
                                 <p className='UserData'>{CreatAt}</p>
+                            </Col>
+                        </Row>
+                        <Row className='UserItems'>
+                            <Col lg={6} sm={12}>
+                                <p className='UserTitle'>پلن :</p>
+                            </Col>
+                            <Col lg={6} sm={12}>
+                                <p className='UserData'>{Plan}</p>
                             </Col>
                         </Row>
                         <Row className='UserItems'>

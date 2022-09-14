@@ -25,6 +25,12 @@ const adminLinks = [
         icon: 'fa fa-phone '
     },
     {
+        id: 7,
+        text: 'لیست اَپ ها',
+        link: '/admin/allapps',
+        icon: 'fa fa-phone '
+    },
+    {
         id: 4,
         text: 'پیام ها',
         link: '/admin/contactpm',
