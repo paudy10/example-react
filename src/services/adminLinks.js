@@ -29,6 +29,18 @@ const adminLinks = [
         text: 'پیام ها',
         link: '/admin/contactpm',
         icon: 'fa fa-phone '
+    },
+    {
+        id: 5,
+        text: 'بلاگ ها',
+        link: '/blog',
+        icon: 'fa fa-phone '
+    },
+    {
+        id: 6,
+        text: 'ارتباط با ما',
+        link: '/contact',
+        icon: 'fa fa-phone '
     }
 ];
 
