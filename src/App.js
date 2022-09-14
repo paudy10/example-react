@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserDetailsAction } from './userDetailSlice';
 
+import UserApp from './components/UserApp';
 import Myfooter from './components/footer';
 import Landing from './components/Landing';
 import Prices from './components/Prices';
@@ -55,6 +56,8 @@ const App = () => {
             <Route path='/contact' element={<Contact />}></Route>
             <Route path='/blog' element={<Blog />}></Route>
             <Route path='/login' element={<Login />}></Route>
+
+            <Route path='/app/:appname' element={<UserApp />}></Route>
 
             <Route path='/signup' element={<Signup />}></Route>
             <Route path='/prices' element={<Prices />}></Route>

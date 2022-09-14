@@ -6,6 +6,8 @@ import { getapps } from '../../../services/getdata';
 import config from '../../../config.json';
 import '../../../css/user.css';
 import Loading from '../../Loading';
+import { Link } from 'react-router-dom';
+
 class AppSaz extends React.Component {
     state = {
         apps: [],
@@ -54,11 +56,10 @@ class AppSaz extends React.Component {
     async createApp() {
         const user = this.props.user;
         const title = document.getElementById('appName').value
-        var btn = document.getElementById('createApp')
-        alert(title)
-        var btn2 = document.getElementById('loading-button')
-        btn.classList.add('dnone')
-        btn2.classList.remove('dnone')
+
+        document.getElementById('createApp').innerHTML = 'درحال ساخت اَپ ...';
+
+
         if (title.length > 3) {
             await axios.post(`${config.baseUrl}${config.api_createapps}`, {
                 "title": title,
@@ -73,21 +74,21 @@ class AppSaz extends React.Component {
                     draggable: true,
                     progress: undefined
                 }),
-                    btn2.classList.add('dnone'),
-                    btn.classList.remove('dnone')))
+                    document.getElementById('createApp').innerHTML = 'سااخت اَپ'
+
                 )
-                .catch(err => ((toast.error(err.response.data.msg, {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined
-                }),
-                    btn2.classList.add('dnone'),
-                    btn.classList.remove('dnone')))
-                )
+                    .catch(err => ((toast.error(err.response.data.msg, {
+                        position: "top-center",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined
+                    }),
+                        document.getElementById('createApp').innerHTML = 'ساخت اَپ'
+                    ))
+                    )))
         }
         else {
             toast.error('نام اَپ باید بیشتر از 3 حرف باشد !', {
@@ -99,8 +100,7 @@ class AppSaz extends React.Component {
                 draggable: true,
                 progress: undefined
             })
-            btn2.classList.add('dnone')
-            btn.classList.remove('dnone')
+            document.getElementById('createApp').innerHTML = 'ساخت اَپ'
 
         }
 
@@ -108,6 +108,7 @@ class AppSaz extends React.Component {
 
     render() {
         const { DataisLoaded, apps } = this.state;
+        var appexist = false;
         const user = this.props.user;
         if (!DataisLoaded) return <Container>
             <Row>
@@ -121,7 +122,7 @@ class AppSaz extends React.Component {
                 </div>
             </Row>
         </Container>;
-        var appexist = false;
+
         const thisApp = apps.map((App) => {
 
             if (App.creator === user.email) {
@@ -130,7 +131,7 @@ class AppSaz extends React.Component {
                     <tr key={App._id} className='AppItem' >
                         <td>
                             <div className='nolinkdecoration' style={{ color: 'black', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-                                <p style={{ marginTop: '2vh' }}>{App.title}</p>
+                                <Link to={`/app/${App.title}`} style={{ marginTop: '2vh' }}>{App.title}</Link>
                             </div>
                         </td>
                         <td>
@@ -204,7 +205,6 @@ class AppSaz extends React.Component {
                                         </Row>
                                         <Row>
                                             <Button id="createApp" onClick={() => this.createApp()} style={{ backgroundImage: 'var(--gradient-color)', border: 'none', width: '30%', marginRight: '35%', marginTop: '5px', marginBottom: '10px' }}>ثبت اَپ</Button>
-                                            <Button className='dnone' id='loading-button' onClick={this.preventDefault} style={{ backgroundColor: 'gray', height: '5.5vh' , textAlign:'center',width: '30%', marginRight: '35%', marginTop: '5px', marginBottom: '10px' , alignItems:'center' , justifyContent:'center' }} ><Loading className='dflex' style={{textAlign:'center'}} type={'spin'} width={25} /></Button>
                                         </Row>
                                     </Container>
                                 )
