@@ -1,11 +1,16 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
 import axios from 'axios';
 import config from '../../../config.json';
 import { toast } from 'react-toastify'
 const Applist = (props) => {
 
+    const navigate = useNavigate()
+
+    const settingApp = (title) => {
+        navigate(`/setting/app/${title}`)
+    }
     const deleteApp = async (title) => {
 
         await axios.post(`${config.baseUrl}${config.api_delapps}`, {
@@ -52,6 +57,9 @@ const Applist = (props) => {
                     <th style={{ textAlign: 'center' }}>
                         حذف اَپ
                     </th>
+                    <th style={{ textAlign: 'center' }}>
+                        تنظیمات اَپ
+                    </th>
 
                 </tr>
             </thead>
@@ -71,6 +79,9 @@ const Applist = (props) => {
                             </td>
                             <td>
                                 <Button id={App.title} onClick={() => deleteApp(App.title)} className='deleteUserBtn' style={{ width: '18%', marginRight: '41%', fontSize: '13px', paddingTop: '10px', marginTop: '0.8vh' }}><i className='fa fa-trash'></i></Button>
+                            </td>
+                            <td>
+                                <Button id={`${App.title}_setting`} onClick={() => settingApp(App.title)} className='settingApp' style={{ width: '18%', marginRight: '41%', fontSize: '13px', paddingTop: '10px', marginTop: '0.8vh' }}><i className='fa fa-cog'></i></Button>
                             </td>
                         </tr>)
                     }

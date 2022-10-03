@@ -1,7 +1,8 @@
 import React from 'react';
-import { getapp } from '../services/getdata';
+import { Navigate } from 'react-router-dom';
+import { getapp } from '../../../services/getdata';
 // import { Container, Row } from 'reactstrap';
-import Loading from './Loading';
+import Loading from '../../Loading';
 
 class UserApp extends React.Component {
     state = {
@@ -30,8 +31,12 @@ class UserApp extends React.Component {
     render() {
 
         const appname = window.location.href.split("/").pop();
+        const user = this.props.user;
 
         const { DataisLoaded, apps } = this.state;
+        if (user.role !== 'user') {
+            return <Navigate to={"/dashboard"} replace={true} />
+        }
         if (!DataisLoaded) return <React.Fragment>
             <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
@@ -41,8 +46,11 @@ class UserApp extends React.Component {
                 <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
             </div>
         </React.Fragment>;
-        if(apps === "no app"){
+        if (apps === "no app") {
             return <p>اَپلیکیشنی با این آدرس یافت نشد</p>
+        }
+        if (user.username !== apps.username) {
+            return <Navigate to={"/dashboard"} replace={true} />
         }
         return (<div>
             <div>
@@ -51,7 +59,7 @@ class UserApp extends React.Component {
                 <p>{apps.email}</p>
                 <p>{apps.createdAt}</p>
                 <p>{appname}</p>
-            
+
             </div>
         </div >
         )

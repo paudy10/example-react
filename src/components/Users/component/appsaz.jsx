@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'reactstrap';
-import { getapps } from '../../../services/getdata';
+import { getuserapp } from '../../../services/getdata';
 import '../../../css/user.css';
 import Loading from '../../Loading';
 import Applist from './applist';
@@ -13,7 +13,9 @@ class AppSaz extends React.Component {
     }
 
     async componentDidMount() {
-        await getapps()
+        let user = this.props.user;
+
+        await getuserapp(user.email)
             .then((res) => res.json())
             .then((json) => {
                 this.setState({
@@ -33,27 +35,26 @@ class AppSaz extends React.Component {
         const { DataisLoaded, apps } = this.state;
         var appexist = false;
         const user = this.props.user;
-        if (!DataisLoaded) return <Container>
-            <Row>
-                <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
-                    <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
-                </div>
-            </Row>
-            <Row>
-                <div className='mt-3' style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
-                </div>
-            </Row>
-        </Container>;
-
+        if (!DataisLoaded) {
+            return (<Container>
+                <Row>
+                    <div className='mt-5' style={{ display: 'flex', justifyContent: 'center' }}>
+                        <h4 className='main-color'> لطفا چند لحظه صبر کنید ... </h4>
+                    </div>
+                </Row>
+                <Row>
+                    <div className='mt-3' style={{ display: 'flex', justifyContent: 'center' }}>
+                        <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+                    </div>
+                </Row>
+            </Container>);
+        }
         apps.map((App) => {
-            if (App.creator === user.email) {
+            if(App.title !== null){
                 appexist = true;
-                return ''
-            }
-            else {
-                appexist = false;
-                return ''
+                return appexist
+            }else {
+                return appexist
             }
         })
         return (

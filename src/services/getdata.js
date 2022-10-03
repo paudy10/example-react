@@ -6,6 +6,12 @@ export function getblog() {
 export function getapps() {
     return fetch(`${config.baseUrl}${config.api_getapps}`);
 }
+export function getapp(name) {
+    return fetch(`${config.baseUrl}${config.api_getapp}${name}`);
+}
+export function getuserapp(name) {
+    return fetch(`${config.baseUrl}${config.api_getuserapp}${name}`);
+}
 export function getprice() {
     return fetch(`${config.baseUrl}${config.api_price}`);
 }

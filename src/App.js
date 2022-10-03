@@ -34,7 +34,7 @@ import User from './components/Admin/component/User';
 import UserDashboard from './components/Users/component/userDashboard';
 import AppSaz from './components/Users/component/appsaz';
 import Allapps from './components/Admin/component/allApps';
-
+import AppSetting from './components/Users/component/AppSetting';
 
 const App = () => {
 
@@ -67,6 +67,8 @@ const App = () => {
 
             <Route path='/dashboard' element={<Dashboard component={<UserDashboard />} />}></Route>
             <Route path='/appsaz' element={<Dashboard component={<AppSaz user={user} />} />}></Route>
+
+            <Route path='/setting/app/:appname' element={<AppSetting user={user} />}></Route>
 
             <Route path='/admin/login' element={<AdminLogin />}></Route>
             <Route path='/admin/dashboard' element={<AdminDashboard component={<AdminDash />} />}></Route>
