@@ -34,13 +34,13 @@
     margin-top: 1vh !important;
     font-size: 15px;
     text-align: center;
-    color: rgb(119, 7, 211);
+    color: var(--main-color);
 }
 
 .UserTitle {}
 
 .UserData {
-    color: rgb(168, 73, 231);
+    color: var(--main-color);
     background-color: rgb(240, 240, 240);
     border-radius: 20px;
     padding-top: 0.6vh;

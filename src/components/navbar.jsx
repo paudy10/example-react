@@ -24,7 +24,7 @@ const Navbar = () => {
             top: '17px'
         },
         bmBurgerBars: {
-            background: '#9936f5',
+            background: '#39ce0c',
             borderRadius: '100px'
         },
         bmBurgerBarsHover: {
@@ -35,7 +35,7 @@ const Navbar = () => {
             width: '24px'
         },
         bmCross: {
-            background: '#9936f5',
+            background: '#39ce0c',
             borderRadius: '10px'
         },
         bmMenuWrap: {
@@ -68,7 +68,7 @@ const Navbar = () => {
     return (
         <React.Fragment>
             <Menu className='newmenu' styles={styles} right >
-                <p className='app-title' style={{ color: 'black', fontSize: '15px', marginRight: '9%' }}>اَپلیکیشن ساز</p>
+                <p className='app-title' style={{ color: '#000 !important', fontSize: '15px', marginRight: '9%' }}>اَپلیکیشن ساز</p>
                 <hr style={{ width: '80%', marginRight: '10%', marginTop: '0' }}></hr>
 
                 <ul style={{ marginTop: '-3vh', marginRight: '2vw' }} className="mynav nav flex-column">

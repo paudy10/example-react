@@ -134,15 +134,16 @@
 
 .nolinkdecoration:link {
     text-decoration: none;
-    color: black !important;
 }
-
+.blacktext {
+    color: #000 !important;
+}
 .header-title {
     margin-right: 8vw !important;
-    color: #333;
+    color: #333 !important;
 }
 .header-title:hover {
-    color: #000;
+    color: #000 !important;
 }
 @media only screen and (min-width: 660px) {
 

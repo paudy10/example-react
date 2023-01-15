@@ -32,7 +32,7 @@ class AllApps extends React.Component {
             </Row>
             <Row>
                 <div className='mt-3' style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+                    <div className='loadingBg'><Loading type='balls' color='#39ce0c' /></div>
                 </div>
             </Row>
         </Container>;

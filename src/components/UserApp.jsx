@@ -38,7 +38,7 @@ class UserApp extends React.Component {
             </div>
 
             <div className='mt-3' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <div className='loadingBg'><Loading type='balls' color='#8e0ec9' /></div>
+                <div className='loadingBg'><Loading type='balls' color='#39ce0c' /></div>
             </div>
         </React.Fragment>;
         if(apps === "no app"){

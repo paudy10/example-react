@@ -1,7 +1,7 @@
 :root {
-    --main-color : #9515e6;
-    --main-hover-color : #720bb3;
-    --footer-bg-color : #5e0694;
-    --gradient-color : linear-gradient(300deg, rgb(174, 0, 255), rgb(210, 177, 248));
+    --main-color : #39ce0c;
+    --main-hover-color : #2a9c08;
+    --footer-bg-color : #46c70b;
+    --gradient-color : linear-gradient(300deg, rgb(26, 197, 11), rgb(183, 248, 177));
     ;
 }
