@@ -8,14 +8,14 @@ const adminLinks = [
     },
     {
         id: 1,
-        text: 'بلاگ جدید',
-        link: '/admin/newblog',
+        text: 'محصول جدید',
+        link: '/admin/newshop',
         icon: 'fa fa-home '
     },
     {
         id: 2,
-        text: 'لیست بلاگ ها',
-        link: '/admin/bloglist',
+        text: 'لیست محصول ها',
+        link: '/admin/shoplist',
         icon: 'fa fa-book'
     },
     {
@@ -24,12 +24,12 @@ const adminLinks = [
         link: '/admin/allusers',
         icon: 'fa fa-phone '
     },
-    {
-        id: 7,
-        text: 'لیست اَپ ها',
-        link: '/admin/allapps',
-        icon: 'fa fa-phone '
-    },
+    // {
+    //     id: 7,
+    //     text: 'لیست اَپ ها',
+    //     link: '/admin/allapps',
+    //     icon: 'fa fa-phone '
+    // },
     {
         id: 4,
         text: 'پیام ها',
@@ -38,8 +38,8 @@ const adminLinks = [
     },
     {
         id: 5,
-        text: 'بلاگ ها',
-        link: '/blog',
+        text: 'محصول ها',
+        link: '/shop',
         icon: 'fa fa-phone '
     },
     {

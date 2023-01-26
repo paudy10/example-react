@@ -3,8 +3,8 @@ const navLinks = [
 
     {
         id: 3,
-        text: 'بلاگ',
-        link: '/blog',
+        text: 'محصولات',
+        link: '/shop',
         icon: 'fa fa-book'
     },
     {

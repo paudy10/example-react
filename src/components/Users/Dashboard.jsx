@@ -23,7 +23,7 @@ const Dashboard = (props) => {
         <React.Fragment>
             <Container>
                 <Row className='welcome'>
-                    <p><span className='username'>{user.username}</span> عزیز , به داشبورد اَپ ساز خوش آمدید !</p>
+                    <p><span className='username'>{user.username}</span> عزیز , به داشبورد عطار خونه خوش آمدید !</p>
                 </Row>
                 <Row className='dashboard-div'>
                     <Col lg={2} md={2} sm={0} className='dash-nav'>

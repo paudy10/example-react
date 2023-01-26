@@ -6,12 +6,12 @@ const userLinks = [
         link: '/dashboard',
         icon: 'fa fa-phone '
     },
-    {
-        id: 1,
-        text: 'اَپ ساز',
-        link: '/appsaz',
-        icon: 'fa fa-home '
-    },
+    // {
+    //     id: 1,
+    //     text: 'عطار خونه',
+    //     link: '/appsaz',
+    //     icon: 'fa fa-home '
+    // },
     {
         id: 2,
         text: 'خرید اشتراک',
@@ -20,8 +20,8 @@ const userLinks = [
     },
     {
         id: 3,
-        text: 'بلاگ ها',
-        link: '/blog',
+        text: 'محصول ها',
+        link: '/shop',
         icon: 'fa fa-phone '
     },
     {
@@ -29,6 +29,12 @@ const userLinks = [
         text: 'ارتباط با ما',
         link: '/contact',
         icon: 'fa fa-phone '
+    },
+    {
+        id: 5,
+        text: 'سبد خرید',
+        link: '/cart',
+        icon: 'fa fa-cart '
     }
 ];
 

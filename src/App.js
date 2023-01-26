@@ -18,7 +18,7 @@ import Landing from './components/Landing';
 import Prices from './components/Prices';
 import Contact from './components/Contact';
 import Signup from './components/signup';
-import Blog from './components/Blog';
+import Shop from './components/shop';
 import Login from './components/Login';
 import Post from './components/Post';
 import Dashboard from './components/Users/Dashboard';
@@ -27,14 +27,16 @@ import AdminDashboard from './components/Admin/Dashboard';
 import Header from './components/header';
 import AdminDash from './components/Admin/component/adminDashboard';
 import Allusers from './components/Admin/component/allUsers';
-import BlogList from './components/Admin/component/blogList';
-import NewBlog from './components/Admin/component/newBlog';
+import ShopList from './components/Admin/component/shopList';
+import Newshop from './components/Admin/component/newshop';
 import Contactpm from './components/Admin/component/contactpm';
 import User from './components/Admin/component/User';
 import UserDashboard from './components/Users/component/userDashboard';
 import AppSaz from './components/Users/component/appsaz';
 import Allapps from './components/Admin/component/allApps';
 import AppSetting from './components/Users/component/AppSetting';
+import Cart from './components/cart';
+import Payment from './components/payment';
 
 const App = () => {
 
@@ -56,14 +58,16 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Landing />}></Route>
             <Route path='/contact' element={<Contact />}></Route>
-            <Route path='/blog' element={<Blog />}></Route>
+            <Route path='/shop' element={<Shop />}></Route>
             <Route path='/login' element={<Login />}></Route>
 
             <Route path='/app/:appname' element={<UserApp />}></Route>
 
             <Route path='/signup' element={<Signup />}></Route>
             <Route path='/prices' element={<Prices />}></Route>
-            <Route path='/blog/:id' element={<Post />}></Route>
+            <Route path='/shop/:id' element={<Post />}></Route>
+            <Route path='/cart' element={<Cart />}></Route>
+            <Route path='/payment' element={<Payment />}></Route>
 
             <Route path='/dashboard' element={<Dashboard component={<UserDashboard />} />}></Route>
             <Route path='/appsaz' element={<Dashboard component={<AppSaz user={user} />} />}></Route>
@@ -72,8 +76,8 @@ const App = () => {
 
             <Route path='/admin/login' element={<AdminLogin />}></Route>
             <Route path='/admin/dashboard' element={<AdminDashboard component={<AdminDash />} />}></Route>
-            <Route path='/admin/newblog' element={<AdminDashboard component={<NewBlog />} />}></Route>
-            <Route path='/admin/bloglist' element={<AdminDashboard component={<BlogList user={user} />} />}></Route>
+            <Route path='/admin/newshop' element={<AdminDashboard component={<Newshop />} />}></Route>
+            <Route path='/admin/shoplist' element={<AdminDashboard component={<ShopList user={user} />} />}></Route>
             <Route path='/admin/allusers' element={<AdminDashboard component={<Allusers />} />}></Route>
             <Route path='/admin/user/:id' element={<AdminDashboard component={<User />} />}></Route>
             <Route path='/admin/contactpm' element={<AdminDashboard component={<Contactpm />} />}></Route>

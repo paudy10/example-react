@@ -1,24 +1,24 @@
-.blog-bg {
+.shop-bg {
     background-image: linear-gradient(90deg, rgb(9, 192, 49), rgb(112, 224, 97));
     border-radius: 10px;
     box-shadow: 0px 0px 5px 2px rgba(88, 88, 88, 0.192);
 }
-.blog-bg img {
+.shop-bg img {
     border-radius: 10px  10px 0 0;
 }
-.blog-div {
+.shop-div {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 3vh !important;
     float: none;
 }
-.blog-title {
+.shop-title {
     margin-top: 2vh !important;
     text-align: center;
     color: white;
 }
-.blog-desc {
+.shop-desc {
     color: white;
     margin-right: 10% !important;
     margin-left: 10% !important;
@@ -28,8 +28,15 @@
     -webkit-box-orient: vertical;
     max-width: 13rem;
 }
-.blog-desc:link,.blog-title:link,.blog-div:link{
+.shop-desc:link,.shop-title:link,.shop-div:link{
     text-decoration: none;
+}
+.shop-price{
+
+}
+.shop-price::after {
+    content: 'تومان';
+    margin-right: 5px !important;
 }
 .skeleton {
     background-image: linear-gradient(
@@ -47,7 +54,7 @@
 }
 
 @media only screen and (min-width:660px){
-    .blog-div {
+    .shop-div {
         float: left !important;
     }
 }

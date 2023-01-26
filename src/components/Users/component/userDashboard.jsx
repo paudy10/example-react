@@ -2,6 +2,7 @@
 import React from 'react';
 import { Container, Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import Emoji from '../../Emoji';
 
 const AdminDashboard = () => {
 
@@ -46,6 +47,11 @@ const AdminDashboard = () => {
                     <Col>{user.plan}</Col>
                 </Row>
             </Row>
+
+            <div style={{position:'fixed' , bottom:'10px' , left:'10px' , width:'200px'}}>
+                <img id='this' onClick={() => document.getElementById("this").style.display = 'none'} src='https://daramad98.ir/wp-content/uploads/a8.gif' width={'100%'} height='100%' style={{ borderRadius: '10px' }} />
+            </div>
+
         </Container>
     )
 }

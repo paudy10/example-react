@@ -68,7 +68,7 @@ const Navbar = () => {
     return (
         <React.Fragment>
             <Menu className='newmenu' styles={styles} right >
-                <p className='app-title' style={{ color: '#000 !important', fontSize: '15px', marginRight: '9%' }}>اَپلیکیشن ساز</p>
+                <p className='app-title' style={{ color: '#000 !important', fontSize: '15px', marginRight: '9%' }}>عطار خونه</p>
                 <hr style={{ width: '80%', marginRight: '10%', marginTop: '0' }}></hr>
 
                 <ul style={{ marginTop: '-3vh', marginRight: '2vw' }} className="mynav nav flex-column">

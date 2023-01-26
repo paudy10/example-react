@@ -118,11 +118,21 @@
 
 .nolinkdecoration {
     text-decoration: none;
-    color: #fff !important;
+    /* color: #fff !important; */
 }
 
 .nolinkdecoration:link,
 .nolinkdecoration:hover {
+    text-decoration: none;
+    /* color: #fff !important; */
+}
+.nolinkdecoration1 {
+    text-decoration: none;
+    color: #fff !important;
+}
+
+.nolinkdecoration1:link,
+.nolinkdecoration1:hover {
     text-decoration: none;
     color: #fff !important;
 }

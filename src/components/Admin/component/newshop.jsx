@@ -8,19 +8,20 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../Loading';
 
-const NewBlog = () => {
+const Newshop = () => {
 
     const navigate = useNavigate()
-    let id, title, desc, img, alt, author;
+    let id, title, desc, img, alt, author , price;
     const user = useSelector(state => state.userDetail)
 
     const onChangeInput = () => {
-        id = document.getElementById('idBlog').value;
-        title = document.getElementById('titleBlog').value;
-        desc = document.getElementById('descBlog').value;
-        img = document.getElementById('imgBlog').value;
+        id = document.getElementById('idshop').value;
+        title = document.getElementById('titleshop').value;
+        desc = document.getElementById('descshop').value;
+        img = document.getElementById('imgshop').value;
 
-        alt = document.getElementById('altBlog').value;
+        alt = document.getElementById('altshop').value;
+        price = document.getElementById('priceshop').value;
     }
 
     const preventDefault = (e) => {
@@ -28,25 +29,27 @@ const NewBlog = () => {
     }
 
     const onSubmitForm = async (e) => {
-        id = document.getElementById('idBlog').value;
-        title = document.getElementById('titleBlog').value;
-        desc = document.getElementById('descBlog').value;
-        img = document.getElementById('imgBlog').value;
-        alt = document.getElementById('altBlog').value;
+        id = document.getElementById('idshop').value;
+        title = document.getElementById('titleshop').value;
+        desc = document.getElementById('descshop').value;
+        img = document.getElementById('imgshop').value;
+        alt = document.getElementById('altshop').value;
+        price = document.getElementById('priceshop').value;
         var btn = document.getElementById('send-pm-button')
         var btn2 = document.getElementById('loading-button')
         btn.classList.add('dnone')
         btn2.classList.remove('dnone')
         author = user.id;
         e.preventDefault();
-        console.log(id, title, desc, img, alt, author)
+        // console.log(id, title, desc, img, alt, author)
         await axios.post(`${config.baseUrl}${config.api_setblog}`, {
             "id": id,
             "title": title,
             "desc": desc,
             "img": img,
             "alt": alt,
-            "author": author
+            "author": author,
+            "price":price
         })
             .then((res) => toast.success(res.data.msg, {
                 position: "top-center",
@@ -56,7 +59,7 @@ const NewBlog = () => {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined
-            }), navigate('/admin/newblog'),
+            }), navigate('/admin/newshop'),
                 btn2.classList.add('dnone'),
                 btn.classList.remove('dnone')
             )
@@ -80,7 +83,7 @@ const NewBlog = () => {
         <Container>
             <Row>
                 <Col>
-                    <p style={{ textAlign: 'center' }}>پست جدید</p>
+                    <p style={{ textAlign: 'center' }}>محصول جدید</p>
 
                 </Col>
             </Row>
@@ -88,24 +91,27 @@ const NewBlog = () => {
                 <Row className='contact-form'>
                     <Form>
                         <FormGroup>
-                            <Input type="text" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="titleBlog" placeholder="عنوان :" />
+                            <Input type="text" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="titleshop" placeholder="عنوان :" />
                         </FormGroup>
                         <FormGroup>
-                            <Input type="tel" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="idBlog" placeholder="آیدی بلاگ :" />
+                            <Input type="tel" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="idshop" placeholder="آیدی محصول :" />
                         </FormGroup>
                         <FormGroup>
                             <Input onKeyDown={onChangeInput} onChange={onChangeInput}
-                                id="descBlog"
+                                id="descshop"
                                 name="text"
                                 type="textarea"
-                                placeholder='متن بلاگ خود را وارد کنید !'
+                                placeholder='متن محصول خود را وارد کنید !'
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Input type="text" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="imgBlog" placeholder="لینک عکس :" />
+                            <Input type="text" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="imgshop" placeholder="لینک عکس :" />
                         </FormGroup>
                         <FormGroup>
-                            <Input type="text" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="altBlog" placeholder="توضیح کلمه ای عکس :" />
+                            <Input type="text" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="altshop" placeholder="توضیح کلمه ای عکس :" />
+                        </FormGroup>
+                        <FormGroup>
+                            <Input type="text" onKeyDown={onChangeInput} onChange={onChangeInput} name="text" id="priceshop" placeholder="قیمت :" />
                         </FormGroup>
                         <Button onClick={onSubmitForm} id='send-pm-button' >ذخیره</Button>
                         <Button className='dnone' id='loading-button' onClick={preventDefault} style={{ backgroundColor: 'gray', height: '6vh' }} ><Loading type={'spin'} width={25} /></Button>
@@ -116,4 +122,4 @@ const NewBlog = () => {
     )
 }
 
-export default NewBlog;
+export default Newshop;

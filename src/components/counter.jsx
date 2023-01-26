@@ -26,7 +26,7 @@ class Counter extends Component {
                 </div></Col>
                 <Col><div className='counter'>
                     <i className='fa fa-tasks'></i>
-                    <p className='counter-project'> پروژه ها</p>
+                    <p className='counter-project'> محصولات</p>
                     <p className='project-count' id='project-count'><CountUp duration={1.75} delay={0.2} end={this.state.counter_project} /></p>
                 </div></Col>
             </React.Fragment>

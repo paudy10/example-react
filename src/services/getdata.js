@@ -3,6 +3,9 @@ import config from '../config.json';
 export function getblog() {
     return fetch(`${config.baseUrl}${config.api_blog}`);
 }
+export function getcart() {
+    return fetch(`${config.baseUrl}${config.api_cart}`);
+}
 export function getapps() {
     return fetch(`${config.baseUrl}${config.api_getapps}`);
 }

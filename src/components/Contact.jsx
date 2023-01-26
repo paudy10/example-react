@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, FormGroup, Form, Button, Input } from 'reactstrap';
 import getMapUrl from '../services/map-contact'
 import '../css/contact.css';
@@ -8,6 +8,9 @@ import axios from 'axios';
 
 const Contact = () => {
 
+    useEffect(() => {
+        localStorage.setItem('State','Contact Us')
+    })
     let username, email, desc;
 
     const onChangeInput = () => {
@@ -54,7 +57,7 @@ const Contact = () => {
     const MapUrl = getMapUrl();
     return (
         <Container className='contact'>
-            <h5 className='contact-title mt-5'>ارتباط با ما</h5>
+            <h5 className='contact-title mt-5'>ارتباط با ما <span style={{fontSize:'11px'}}>( تیکت )</span></h5>
             <Row>
                 <Col className='mt-4' sm={12} lg={6} md={6}>
                     <div className='contact-div'>
@@ -87,7 +90,9 @@ const Contact = () => {
                 </Col>
                 <Col className='mt-4' sm={12} lg={6} md={6}>
                     <p className='main-color'>اطلاعات تماس</p>
-                    <p className='main-color'>ایمیل : </p>
+                    <p className='main-color'>ایمیل : Mail@AttarKhune.Ir</p>
+                    <p className='main-color'>شماره تلفن : 09170955479</p>
+                    <p className='main-color'>کانال تلگرام : <a style={{textDecoration:"none" , color:'green'}} href='t.me/lamjvdl'>@AttarKhune</a></p>
                     <img src={MapUrl} alt='نقشه مکان' className='image-fluid map-image'></img>
                 </Col>
             </Row>

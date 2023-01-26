@@ -2,8 +2,8 @@ const mapObj = {
     key: 'service.cfadf2423bb74262a36b5a321989c025',
     type: 'dreamy-gold',
     zoom: 12,
-    lat: '27.227461355211013',
-    long: '56.343490063754864',
+    lat: '27.217461355211013',
+    long: '56.303490063754864',
     width: 500,
     height: 400,
     marker: 'none'

@@ -5,3 +5,6 @@
     --gradient-color : linear-gradient(300deg, rgb(26, 197, 11), rgb(183, 248, 177));
     ;
 }
+th , td {
+    color: black !important;
+}

@@ -6,9 +6,9 @@ import { getblog } from '../../../services/getdata';
 import config from '../../../config.json';
 import '../../../css/user.css';
 import Loading from '../../Loading';
-class BlogList extends React.Component {
+class shopList extends React.Component {
     state = {
-        Blogs: [],
+        shops: [],
         DataisLoaded: false
     }
 
@@ -17,7 +17,7 @@ class BlogList extends React.Component {
             .then((res) => res.json())
             .then((json) => {
                 this.setState({
-                    Blogs: json,
+                    shops: json,
                     DataisLoaded: true
                 });
             })
@@ -49,7 +49,7 @@ class BlogList extends React.Component {
 
     render() {
 
-        const { DataisLoaded, Blogs } = this.state;
+        const { DataisLoaded, shops } = this.state;
         const user = this.props.user;
         if (!DataisLoaded) return <Container>
             <Row>
@@ -64,22 +64,27 @@ class BlogList extends React.Component {
             </Row>
         </Container>;
 
-        const thisBlog = Blogs.map((blog) => {
-            if (blog.author === user.id) {
+        const thisshop = shops.map((shop) => {
+            if (shop.author === user.id) {
                 return (
-                    <tr key={blog.email} className='userItem' >
+                    <tr key={shop.email} className='userItem' >
                         <td>
                             <div className='nolinkdecoration' style={{ color: 'black', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-                                <p style={{ marginTop: '2vh' }}>{blog.id}</p>
+                                <p style={{ marginTop: '2vh' }}>{shop.id}</p>
                             </div>
                         </td>
                         <td>
                             <div className='nolinkdecoration' style={{ color: 'black', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
-                                <p style={{ marginTop: '2vh' }}>{blog.title}</p>
+                                <p style={{ marginTop: '2vh' }}>{shop.title}</p>
                             </div>
                         </td>
                         <td>
-                            <Button id={blog.id} onClick={() => this.deleteUser(blog.id)} className='deleteUserBtn' style={{ width: '18%', marginRight: '41%', fontSize: '13px', paddingTop: '10px', marginTop: '0.8vh' }}><i className='fa fa-trash'></i></Button>
+                            <div className='nolinkdecoration' style={{ color: 'black', textAlign: 'center', display: 'flex', justifyContent: 'center', alignItems: 'center' }} >
+                                <p style={{ marginTop: '2vh' }}>{shop.price}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <Button id={shop.id} onClick={() => this.deleteUser(shop.id)} className='deleteUserBtn' style={{ width: '18%', marginRight: '41%', fontSize: '13px', paddingTop: '10px', marginTop: '0.8vh' }}><i className='fa fa-trash'></i></Button>
                         </td>
                     </tr>
                 )
@@ -93,12 +98,12 @@ class BlogList extends React.Component {
             <Container>
                 <Row>
                     <Col>
-                        <p style={{ display: 'flex', alignItem: 'center', justifyContent: 'center' }}>لیست بلاگ ها</p>
+                        <p style={{ display: 'flex', alignItem: 'center', justifyContent: 'center' }}>لیست محصول ها</p>
                     </Col>
                 </Row>
                 <hr style={{ width: '60%', color: '#ccc', marginTop: '0', marginRight: '20%' }} />
                 <Row>
-                    <p className='help1text'><span className='crc '></span> لیست بلاگ هایی که شما نویسنده آن بوده اید  !</p>
+                    <p className='help1text'><span className='crc '></span> لیست محصول هایی که شما نویسنده آن بوده اید  !</p>
                 </Row>
 
                 <Row >
@@ -119,13 +124,16 @@ class BlogList extends React.Component {
                                         عنوان
                                     </th>
                                     <th style={{ textAlign: 'center' }}>
-                                        حذف بلاگ
+                                        قیمت
+                                    </th>
+                                    <th style={{ textAlign: 'center' }}>
+                                        حذف محصول
                                     </th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                {thisBlog}
+                                {thisshop}
                             </tbody>
                         </Table>
                     </Col>
@@ -139,4 +147,4 @@ class BlogList extends React.Component {
         )
     }
 }
-export default BlogList;
+export default shopList;
